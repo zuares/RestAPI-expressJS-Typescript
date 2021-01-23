@@ -13,6 +13,7 @@ import helmet from 'helmet';
 import UserRoutes from './routers/UserRoutes';
 // Dotenv
 import {config as dotenv} from 'dotenv';
+import AuthRoutes from './routers/AuthRoutes';
 
 class App {
     public app: Application ;
@@ -33,10 +34,8 @@ class App {
     }
 
     protected  routes():void{
-        this.app.route('/').get((req: Request, res: Response) => {
-            res.send(`Ini adalah route menggunakan ts`)
-        });
         this.app.use('/api/v1/users', UserRoutes);
+        this.app.use('/auth', AuthRoutes);
     }
 }
 

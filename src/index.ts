@@ -11,9 +11,10 @@ import compression from 'compression';
 import helmet from 'helmet';
 // Routers 
 import UserRoutes from './routers/UserRoutes';
+import AuthRoutes from './routers/AuthRoutes';
+import TodoRoutes from './routers/TodoRoutes';
 // Dotenv
 import {config as dotenv} from 'dotenv';
-import AuthRoutes from './routers/AuthRoutes';
 
 class App {
     public app: Application ;
@@ -35,7 +36,8 @@ class App {
 
     protected  routes():void{
         this.app.use('/api/v1/users', UserRoutes);
-        this.app.use('/auth', AuthRoutes);
+        this.app.use('/api/v1/auth', AuthRoutes);
+        this.app.use('/api/v1/todos', TodoRoutes);
     }
 }
 

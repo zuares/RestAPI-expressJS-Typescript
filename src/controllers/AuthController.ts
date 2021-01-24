@@ -29,7 +29,7 @@ class AuthController {
             let token = Auth.generateToken(user.id, user.username,user.password);
             return res.send(token);
         }
-
+        
         return res.send("Invalid auth");
         
     }
